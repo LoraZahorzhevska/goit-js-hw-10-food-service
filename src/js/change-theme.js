@@ -29,11 +29,20 @@ function checkboxType() {
 function onThemeChange(e) {
   if (e.target.checked) {
     localStorage.setItem('theme', Theme.DARK);
-    bodyRef.classList.remove(Theme.LIGHT);
-    bodyRef.classList.add(Theme.DARK);
+    bodyRefClassListChange(Theme.DARK, Theme.LIGHT);
+
+    // bodyRef.classList.remove(Theme.LIGHT);
+    // bodyRef.classList.add(Theme.DARK);
   } else {
     localStorage.setItem('theme', Theme.LIGHT);
-    bodyRef.classList.remove(Theme.DARK);
-    bodyRef.classList.add(Theme.LIGHT);
+    bodyRefClassListChange(Theme.LIGHT, Theme.DARK);
+
+    // bodyRef.classList.remove(Theme.DARK);
+    // bodyRef.classList.add(Theme.LIGHT);
   }
+}
+
+function bodyRefClassListChange(addTheme, removeTheme) {
+  bodyRef.classList.add(addTheme);
+  bodyRef.classList.remove(removeTheme);
 }
